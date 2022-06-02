@@ -1,5 +1,5 @@
 out
 .idea
 .git
-gcall.bat
+*.bat
 upload.sh
