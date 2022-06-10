@@ -7,5 +7,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Pixel Sharp" level="project" />
+    <orderEntry type="library" name="flatlaf-ui" level="project" />
   </component>
 </module>
