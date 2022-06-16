@@ -1,8 +1,6 @@
 package app;
 
 import app.internal.ConfigParser;
-
-
 import java.io.File;
 
 public class Main {
