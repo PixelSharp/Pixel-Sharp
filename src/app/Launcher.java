@@ -2,9 +2,11 @@ package app;
 
 
 import app.internal.ConfigParser;
-import app.internal.Session;
+import app.internal.Core;
+import app.ui.Window;
 
 import javax.swing.*;
+import java.io.File;
 
 public class Launcher {
     public static void launchSession(ConfigParser config){
@@ -19,6 +21,8 @@ public class Launcher {
         } catch (UnsupportedLookAndFeelException e) {
             e.printStackTrace();
         }
-        new Session(config);
+        ConfigParser configParser = new ConfigParser();
+        configParser.parseConfig(new File("data.cfg"));
+        new Core(new Window(),configParser);
     }
 }
