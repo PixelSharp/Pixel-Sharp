@@ -4,6 +4,7 @@ import app.internal.Core;
 import app.internal.ImageManager;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.*;
 
 public class Window extends JFrame {
@@ -32,10 +33,7 @@ public class Window extends JFrame {
             public void componentResized(ComponentEvent e) {
                 pv.setBounds(260,100,Math.min(getWidth()-340,Core.img.getWidth()),Math.min(getHeight()-250, Core.img.getHeight()));
                 imageView.repaint();
-                pv.repaint();
-                repaint();
                 mainView.repaint();
-
             }
 
             @Override
@@ -53,7 +51,14 @@ public class Window extends JFrame {
 
             }
         });
-
+        this.addWindowStateListener(new WindowStateListener() {
+            @Override
+            public void windowStateChanged(WindowEvent e) {
+                pv.setBounds(260,100,Math.min(getWidth()-340,Core.img.getWidth()),Math.min(getHeight()-250, Core.img.getHeight()));
+                imageView.repaint();
+                mainView.repaint();
+            }
+        });
 
     }
 }

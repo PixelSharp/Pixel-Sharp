@@ -25,8 +25,7 @@ public class Core {
     }
     public static void zoom(double z){
         img = ImageManager.zoom(img,(int)(z*originalWidth),(int)(z*originalHeight));
-        Core.win.imageView.setPreferredSize(new Dimension(img.getWidth(),img.getHeight()));
-        Core.win.imageView.setLocation(0,0);
+        Core.win.imageView.setPreferredSize(new Dimension(Math.max(img.getWidth(),originalWidth),Math.max(img.getHeight(),originalHeight/2)));
         Core.win.imageView.getGraphics().dispose();
         Core.win.imageView.setIcon(new ImageIcon(img));
         Core.win.imageView.repaint();

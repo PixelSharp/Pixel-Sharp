@@ -9,7 +9,7 @@ import javax.swing.event.ChangeListener;
 import java.awt.*;
 
 public class MainView extends JPanel {
-     public static int MIN_ZOOM = 0;
+     public static int MIN_ZOOM = 1;
      public static int MID_ZOOM = 25;
      public static int MAX_ZOOM = 50;
 
