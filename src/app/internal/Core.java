@@ -12,6 +12,7 @@ public class Core {
     public static int originalWidth,originalHeight;
     public static BufferedImage oimg;
     public static Color selectedColor = Color.BLACK;
+    public static int penSize = 1;
     public Core(Window w,ConfigParser configParser){
         win = w;
         win.imageView.setIcon(new ImageIcon(img));

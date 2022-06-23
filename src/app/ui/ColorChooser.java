@@ -14,7 +14,13 @@ public class ColorChooser extends JFrame {
         this.setContentPane(chooser);
         this.setLocationRelativeTo(null);
         new Timer(700, e -> {
-            Core.selectedColor = chooser.getColor();
+            if(Core.selectedColor != chooser.getColor()) {
+                Core.selectedColor = chooser.getColor();
+                //if(Core.selectedColor.getRed()>200&&Core.selectedColor.getGreen()>200&&Core.selectedColor.getBlue()>200){
+                //}
+                MainView.palette.setBackground(Core.selectedColor);
+            }
+
         }).start();
 
     }

@@ -39,11 +39,12 @@ public class Window extends JFrame {
                 int ye = (int)(yx*Core.originalHeight);
 
                 Core.oimg.setRGB(xe,ye,Core.selectedColor.getRGB());
+                Core.oimg.getGraphics().fillRect(xe,ye,Core.penSize,Core.penSize);
                 Core.oimg.getGraphics().dispose();
                 Graphics2D g = Core.img.createGraphics();
                 g.setRenderingHint(RenderingHints.KEY_INTERPOLATION,
                         RenderingHints.VALUE_INTERPOLATION_BILINEAR);
-                int ratio = Math.max(1,ix/xe);
+                int ratio = Math.max(1,ix/xe)*Core.penSize;
                 for(int i = 0;i<ratio;i++)
                     for(int j = 0;j<ratio;j++)
                         Core.img.setRGB(ix+i,iy+j,Core.selectedColor.getRGB());
@@ -58,7 +59,9 @@ public class Window extends JFrame {
         this.addComponentListener(new ComponentListener() {
             @Override
             public void componentResized(ComponentEvent e) {
-                pv.setBounds(260,100,Math.min(getWidth()-340,Core.img.getWidth()),Math.min(getHeight()-250, Core.img.getHeight()));
+                Core.win.pv.setBounds(260,100,Math.min(Core.win.getWidth()-340,Core.img.getWidth()),Math.min(Core.win.getHeight()-180, Core.img.getHeight()));
+
+
                 imageView.repaint();
                 mainView.repaint();
             }
@@ -79,7 +82,8 @@ public class Window extends JFrame {
             }
         });
         this.addWindowStateListener(e -> {
-            pv.setBounds(260,100,Math.min(getWidth()-340,Core.img.getWidth()),Math.min(getHeight()-250, Core.img.getHeight()));
+            Core.win.pv.setBounds(260,100,Math.min(Core.win.getWidth()-340,Core.img.getWidth()),Math.min(Core.win.getHeight()-180, Core.img.getHeight()));
+
             imageView.repaint();
             mainView.repaint();
         });
